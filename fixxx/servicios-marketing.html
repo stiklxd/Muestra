@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Marketing Digital — MiMarca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header simple -->
+  <header class="page-header">
+    <div class="container">
+      <h1>Paquetes de Marketing Digital</h1>
+      <p>Planes diseñados para aumentar la visibilidad y ventas de tu negocio.</p>
+      <a href="index.html" class="btn ghost">← Volver al inicio</a>
+    </div>
+  </header>
+  <!-- Submenú de servicios -->
+<!-- Submenú de servicios -->
+<nav class="subnav">
+  <div class="container">
+    <ul>
+      <li><a href="servicios-web.html">Páginas Web</a></li>
+      <li><a href="servicios-marketing.html" class="active">Marketing Digital</a></li>
+      <li><a href="servicios-fotografia.html">Fotografía</a></li>
+    </ul>
+
+    <!-- Dropdown solo visible en móvil -->
+    <select class="subnav-dropdown" onchange="location = this.value;">
+      <option value="servicios-web.html" selected>Páginas Web</option>
+      <option value="servicios-marketing.html">Marketing Digital</option>
+      <option value="servicios-fotografia.html">Fotografía</option>
+    </select>
+  </div>
+</nav>
+
+
+  <!-- Planes -->
+  <section class="services-detail">
+    <div class="container plans-grid">
+
+      <!-- Plan Básico -->
+      <article class="plan-card">
+        <h2>Plan Básico</h2>
+        <p class="price">$500.000 COP</p>
+        <ul>
+          <li>1 red social administrada</li>
+          <li>12 publicaciones al mes</li>
+          <li>3 historias semanales</li>
+          <li>Calendario de contenido</li>
+          <li>Reporte mensual de métricas</li>
+        </ul>
+        <a href="#" class="btn primary">Solicitar</a>
+      </article>
+
+      <!-- Plan Avanzado -->
+      <article class="plan-card">
+        <h2>Plan Avanzado</h2>
+        <p class="price">$900.000 COP</p>
+        <ul>
+          <li>2 redes sociales administradas</li>
+          <li>20 publicaciones al mes</li>
+          <li>5 historias semanales</li>
+          <li>Diseños personalizados</li>
+          <li>2 campañas publicitarias al mes</li>
+          <li>Reporte quincenal de métricas</li>
+        </ul>
+        <a href="#" class="btn primary">Solicitar</a>
+      </article>
+
+      <!-- Plan Premium -->
+      <article class="plan-card">
+        <h2>Plan Premium</h2>
+        <p class="price">$1.500.000 COP</p>
+        <ul>
+          <li>3 redes sociales administradas</li>
+          <li>30 publicaciones al mes</li>
+          <li>7 historias semanales</li>
+          <li>Diseños premium e identidad gráfica</li>
+          <li>Campañas publicitarias ilimitadas</li>
+          <li>Reporte semanal de métricas</li>
+        </ul>
+       <a href="#" class="btn primary">Solicitar</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Extras -->
+  <section class="extras">
+    <div class="container">
+      <h2>Extras Opcionales</h2>
+      <ul>
+        <li><strong>Video corto de publicidad:</strong> $200.000 COP</li>
+        <li><strong>Fotografía adicional:</strong> $100.000 COP</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 MiMarca. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <!-- Modal de Solicitud -->
+<div id="modal-solicitud" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Solicitar Servicio</h2>
+    <form id="form-solicitud">
+      <label>Nombre</label>
+      <input type="text" name="nombre" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Servicio seleccionado</label>
+      <input type="text" name="servicio" id="servicio-input" readonly>
+
+      <label>Mensaje</label>
+      <textarea name="mensaje" rows="4" required></textarea>
+
+      <button type="submit" class="btn primary">Enviar</button>
+    </form>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

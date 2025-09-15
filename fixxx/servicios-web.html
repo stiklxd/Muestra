@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Páginas Web — MiMarca</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header simple -->
+  <header class="page-header">
+    <div class="container">
+      <h1>Paquetes de Desarrollo Web</h1>
+      <p>Elige el plan que mejor se adapte a tu negocio.</p>
+      <a href="index.html" class="btn ghost">← Volver al inicio</a>
+    </div>
+  </header>
+  <!-- Submenú de servicios -->
+<!-- Submenú de servicios -->
+<nav class="subnav">
+  <div class="container">
+    <ul>
+      <li><a href="servicios-web.html" class="active">Páginas Web</a></li>
+      <li><a href="servicios-marketing.html">Marketing Digital</a></li>
+      <li><a href="servicios-fotografia.html">Fotografía</a></li>
+    </ul>
+
+    <!-- Dropdown solo visible en móvil -->
+    <select class="subnav-dropdown" onchange="location = this.value;">
+      <option value="servicios-web.html" selected>Páginas Web</option>
+      <option value="servicios-marketing.html">Marketing Digital</option>
+      <option value="servicios-fotografia.html">Fotografía</option>
+    </select>
+  </div>
+</nav>
+
+
+  <!-- Planes -->
+  <section class="services-detail">
+    <div class="container plans-grid">
+
+      <!-- Plan Básico -->
+      <article class="plan-card">
+  <h2>Plan Básico</h2>
+  <p class="price">$1.250.000 COP</p>
+  <ul>
+    <li>Página informativa (hasta 4 secciones)</li>
+    <li>Diseño responsive</li>
+    <li>Hosting y dominio por 1 año</li>
+    <li>Sesión de fotografía básica</li>
+    <li>Sin base de datos ni sistemas avanzados</li>
+  </ul>
+  <a href="#" class="btn primary">Solicitar</a>
+</article>
+
+
+      <!-- Plan Avanzado -->
+      <article class="plan-card">
+        <h2>Plan Avanzado</h2>
+        <p class="price">$2.250.000 COP</p>
+        <ul>
+          <li>Todo lo del Plan Básico</li>
+          <li>Integración de base de datos</li>
+          <li>Panel administrativo sencillo</li>
+          <li>Hosting y dominio por 1 año</li>
+          <li>Sesión de fotografía incluida</li>
+        </ul>
+        <a href="#" class="btn primary">Solicitar</a>
+      </article>
+
+      <!-- Plan Premium -->
+      <article class="plan-card">
+        <h2>Plan Premium</h2>
+        <p class="price">$3.750.000 COP</p>
+        <ul>
+          <li>Todo lo del Plan Avanzado</li>
+          <li>Tienda online con carrito de compras</li>
+          <li>Integración con pasarela de pagos</li>
+          <li>Gestión de productos en panel</li>
+          <li>Hosting y dominio por 1 año</li>
+          <li>Sesión de fotografía profesional</li>
+        </ul>
+        <a href="#" class="btn primary">Solicitar</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Extras -->
+  <section class="extras">
+    <div class="container">
+      <h2>Extras Opcionales</h2>
+      <ul>
+        <li><strong>Mantenimiento Básico:</strong> $80.000 COP/mes</li>
+        <li><strong>Mantenimiento Avanzado:</strong> $140.000 COP/mes</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 MiMarca. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <!-- Modal de Solicitud -->
+<div id="modal-solicitud" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Solicitar Servicio</h2>
+    <form id="form-solicitud">
+      <label>Nombre</label>
+      <input type="text" name="nombre" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Servicio seleccionado</label>
+      <input type="text" name="servicio" id="servicio-input" readonly>
+
+      <label>Mensaje</label>
+      <textarea name="mensaje" rows="4" required></textarea>
+
+      <button type="submit" class="btn primary">Enviar</button>
+    </form>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
