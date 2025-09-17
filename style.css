@@ -1,18 +1,41 @@
-/* ====== RESET ====== */
+/* =========================================================
+   RESET & VARIABLES
+========================================================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --bg-color: #0b0e16;
+  --surface: #131a28;
+  --primary: #6A11CB;       /* morado principal */
+  --primary-dark: #3A0CA3;  /* morado profundo */
+  --accent: #03A9F4;        /* azul acento */
+  --text-dark: #111827;     /* texto sobre claro */
+  --text-light: #f5f5f5;    /* texto sobre oscuro */
+}
+
+/* =========================================================
+   BASE
+========================================================= */
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #fff;
+  background: var(--bg-color);
+  color: var(--text-light);
 }
 
-/* ====== NAVBAR ====== */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
 .navbar {
   background: transparent;
   padding: 1rem 0;
@@ -50,29 +73,40 @@ body {
   font-weight: 500;
   transition: color 0.3s ease;
 }
-
 .nav-links a:hover {
   color: #f16a6a;
 }
 
-/* Botón menú */
+/* Botón menú hamburguesa */
 .menu-toggle {
-  display: none;
+  display: none; /* oculto en desktop */
   flex-direction: column;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
 }
-
 .menu-toggle span {
   width: 25px;
   height: 3px;
   background: #fff;
   border-radius: 3px;
+  transition: 0.3s;
+}
+/* Animación hamburguesa → "X" */
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* ====== HERO ====== */
+/* =========================================================
+   HERO
+========================================================= */
 .hero {
   position: relative;
   height: 100vh;
@@ -91,7 +125,6 @@ body {
   filter: blur(120px);
   opacity: 0.4;
 }
-
 .hero::before {
   width: 400px;
   height: 400px;
@@ -99,7 +132,6 @@ body {
   top: -100px;
   left: -100px;
 }
-
 .hero::after {
   width: 500px;
   height: 500px;
@@ -123,50 +155,16 @@ body {
 .hero-content {
   max-width: 600px;
 }
-
 .hero-content h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
-
 .hero-content .lead {
   font-size: 1.1rem;
   margin-bottom: 2rem;
 }
-
-.accent {
-  color: #f16a6a;
-}
-
-/* Botones */
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn.primary {
-  background: #f16a6a;
-  color: #333;
-}
-
-.btn.primary:hover {
-  background: #f16a6a;
-}
-
-.btn.ghost {
-  border: 2px solid #fff;
-  color: #fff;
-}
-
-.btn.ghost:hover {
-  background: #fff;
-  color: #333;
-}
+.accent { color: #f16a6a; }
 
 /* Zona visual */
 .hero-visual {
@@ -175,324 +173,44 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .visual-shape {
   width: 300px;
   height: 300px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255,255,255,0.15);
   border-radius: 20px;
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* ====== SECCIONES ====== */
-section {
-  padding: 5rem 2rem;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-/* Servicios */
-.services .service-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.services .card {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.services .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
-.services .icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #f16a6a;
-}
-
-/* Testimonios */
-.testimonials blockquote {
-  background: #f9f9f9;
-  padding: 1.5rem;
-  border-left: 5px solid #f16a6a;
-  font-style: italic;
-  max-width: 700px;
-  margin: 2rem auto;
-}
-
-/* Footer */
-.footer {
-  background: #222;
-  color: #ccc;
-  text-align: center;
-  padding: 1rem;
-}
-
-/* ====== RESPONSIVE ====== */
-@media (max-width: 900px) {
-  .hero-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 3rem;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-visual {
-    order: -1;
-  }
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: rgba(0,0,0,0.9);
-    flex-direction: column;
-    width: 200px;
-    padding: 1rem;
-    display: none;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-links a {
-    color: #fff;
-    padding: 0.5rem 0;
-  }
-}
-/* ====== PÁGINAS DE DETALLE ====== */
-.page-header {
-  background: linear-gradient(135deg, #4a90e2, #6a11cb);
-  color: #fff;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.page-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.page-header p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.services-detail {
-  padding: 4rem 2rem;
-}
-
-.plans-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.plan-card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.plan-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
-.plan-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.plan-card .price {
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #6a11cb;
-  margin-bottom: 1rem;
-}
-
-.plan-card ul {
-  list-style: none;
-  margin: 1rem 0;
-  text-align: left;
-}
-
-.plan-card ul li {
-  margin-bottom: 0.5rem;
-}
-
-.extras {
-  background: #f9f9f9;
-  padding: 3rem 2rem;
-  text-align: center;
-}
-
-.extras ul {
-  list-style: none;
-  margin-top: 1rem;
-}
-
-.extras li {
-  margin-bottom: 0.5rem;
-}
-/* ====== SUBMENÚ DE SERVICIOS ====== */
-.subnav {
-  background: #f4f4f4;
-  border-bottom: 1px solid #ddd;
-}
-
-.subnav .container {
-  display: flex;
-  justify-content: center;
-}
-
-.subnav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  padding: 1rem 0;
-}
-
-.subnav a {
+/* =========================================================
+   BOTONES
+========================================================= */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 500;
-  color: #333;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
-
-.subnav a:hover {
-  color: #6a11cb;
-}
-
-.subnav a.active {
-  color: #6a11cb;
-  font-weight: 700;
-  border-bottom: 2px solid #6a11cb;
-  padding-bottom: 0.2rem;
-}
-/* ====== SUBMENÚ DE SERVICIOS ====== */
-.subnav {
-  background: #f4f4f4;
-  border-bottom: 1px solid #ddd;
-}
-
-.subnav .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem 1rem;
-}
-
-.subnav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-}
-
-.subnav a {
-  text-decoration: none;
-  font-weight: 500;
-  color: #333;
-  transition: color 0.3s ease;
-}
-
-.subnav a:hover {
-  color: #6a11cb;
-}
-
-.subnav a.active {
-  color: #6a11cb;
-  font-weight: 700;
-  border-bottom: 2px solid #6a11cb;
-  padding-bottom: 0.2rem;
-}
-
-/* Dropdown oculto en desktop */
-.subnav-dropdown {
-  display: none;
-  width: 100%;
-  padding: 0.8rem;
-  font-size: 1rem;
-  border-radius: 8px;
+.btn.primary {
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+  color: #fff !important;
   border: none;
-  background: linear-gradient(135deg, #6a11cb, #4a90e2);
+  box-shadow: 0 8px 30px rgba(58,12,163,0.18);
+}
+.btn.primary:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+.btn.ghost {
+  border: 2px solid #fff;
   color: #fff;
-  font-weight: 500;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: background 0.3s ease;
 }
-
-/* Flechita personalizada */
-.subnav-dropdown option {
-  color: #333; /* el texto interno de las opciones queda oscuro */
+.btn.ghost:hover {
+  background: #fff;
+  color: #333;
 }
-
-/* Hover/Focus */
-.subnav-dropdown:hover,
-.subnav-dropdown:focus {
-  background: linear-gradient(135deg, #8138d8, #5aa0f0);
-  outline: none;
-}
-
-/* ====== RESPONSIVE ====== */
-@media (max-width: 768px) {
-  .subnav ul {
-    display: none; /* Oculta la fila de enlaces */
-  }
-
-  .subnav-dropdown {
-    display: block; /* Muestra el select */
-  }
-}
-.visual-shape {
-  width: 300px;
-  height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(255,255,255,0.1);
-  border-radius: 20px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-}
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-}
-
-.contact-list li {
-  margin-bottom: 1rem;
-}
-
 .btn.whatsapp {
   background: #25d366;
   color: #fff;
@@ -505,33 +223,111 @@ h2 {
   text-decoration: none;
   transition: background 0.3s ease;
 }
+.btn.whatsapp:hover { background: #1ebe5b; }
 
-.btn.whatsapp:hover {
-  background: #1ebe5b;
+/* =========================================================
+   SECCIONES
+========================================================= */
+section { padding: 5rem 2rem; }
+
+.services .service-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
-/* Botón flotante WhatsApp */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25d366;
+.services .card {
+  background: rgba(255,255,255,0.03);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.services .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+.services .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.testimonials blockquote {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-left: 5px solid #f16a6a;
+  font-style: italic;
+  max-width: 700px;
+  margin: 2rem auto;
+}
+
+/* =========================================================
+   PÁGINAS DE DETALLE (planes)
+========================================================= */
+.page-header {
+  background: linear-gradient(135deg, #4a90e2, #6a11cb);
   color: #fff;
-  font-size: 1.8rem;
-  padding: 14px 16px;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  z-index: 1000;
-  transition: transform 0.3s ease, background 0.3s ease;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.page-header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.page-header p { font-size: 1.2rem; margin-bottom: 1rem; }
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.plan-card {
+  background: rgba(255,255,255,0.03);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.plan-card h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.plan-card .price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.plan-card ul { list-style: none; margin: 1rem 0; text-align: left; }
+.plan-card ul li { margin-bottom: 0.5rem; }
+
+/* =========================================================
+   CONTACTO / FORMULARIOS
+========================================================= */
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff !important;
+  color: #111 !important; /* 🔥 texto negro */
+  font-size: 1rem;
+}
+form input::placeholder,
+form textarea::placeholder {
+  color: #666 !important;
+}
+form input:focus,
+form textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+  color: #111 !important;
 }
 
-.whatsapp-float:hover {
-  background: #1ebe5b;
-  transform: scale(1.1);
-}
-/* Modal */
-/* Modal (oculto al inicio) */
+/* =========================================================
+   MODAL
+========================================================= */
 .modal {
-  display: none; /* 🔥 importantísimo: oculto hasta que se active */
+  display: none;
   position: fixed;
   z-index: 2000;
   left: 0; top: 0;
@@ -540,8 +336,6 @@ h2 {
   justify-content: center;
   align-items: center;
 }
-
-
 .modal-content {
   background: #fff;
   padding: 2rem;
@@ -549,27 +343,9 @@ h2 {
   max-width: 400px;
   width: 90%;
   position: relative;
+  color: #111;
 }
-
-.modal-content h2 {
-  margin-bottom: 1rem;
-}
-
-.modal-content label {
-  display: block;
-  margin-top: 1rem;
-  font-weight: 500;
-}
-
-.modal-content input,
-.modal-content textarea {
-  width: 100%;
-  padding: 0.6rem;
-  margin-top: 0.3rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
+.modal-content h2 { margin-bottom: 1rem; }
 .close {
   position: absolute;
   top: 10px; right: 15px;
@@ -577,3 +353,104 @@ h2 {
   cursor: pointer;
   color: #333;
 }
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.footer {
+  background: var(--surface);
+  color: var(--text-light);
+  text-align: center;
+  padding: 1rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 900px) {
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+  .hero-content h1 { font-size: 2rem; }
+  .hero-visual { order: -1; }
+}
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; } /* solo en móvil */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem;
+    display: none;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a {
+    color: #fff;
+    padding: 0.5rem 0;
+  }
+}
+/* Submenú servicios */
+/* ===== SUBMENÚ DE SERVICIOS ===== */
+.subnav {
+  background: var(--surface);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 0.8rem 0;
+}
+
+.subnav .container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.subnav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.subnav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.subnav a:hover {
+  color: var(--accent);
+}
+
+.subnav a.active {
+  color: var(--accent);
+  font-weight: 600;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.2rem;
+}
+
+/* Dropdown móvil oculto en desktop */
+.subnav-dropdown {
+  display: none;
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: var(--surface);
+  color: var(--text-light);
+}
+
+/* Reglas responsive */
+@media (max-width: 768px) {
+  .subnav ul {
+    display: none; /* 🔥 Ocultamos la lista en móvil */
+  }
+  .subnav-dropdown {
+    display: block; /* 🔥 Mostramos el selector */
+  }
+}
+
