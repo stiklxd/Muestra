@@ -17,24 +17,24 @@
       <a href="index.html" class="btn ghost">← Volver al inicio</a>
     </div>
   </header>
-  <!-- Submenú de servicios -->
-<!-- Submenú de servicios -->
 <nav class="subnav">
   <div class="container">
+    <!-- Lista escritorio -->
     <ul>
       <li><a href="servicios-web.html" class="active">Páginas Web</a></li>
       <li><a href="servicios-marketing.html">Marketing Digital</a></li>
       <li><a href="servicios-fotografia.html">Fotografía</a></li>
     </ul>
 
-    <!-- Dropdown solo visible en móvil -->
-    <select class="subnav-dropdown" onchange="location = this.value;">
+    <!-- Dropdown móvil -->
+    <select class="subnav-dropdown" onchange="if(this.value) window.location.href=this.value">
       <option value="servicios-web.html" selected>Páginas Web</option>
       <option value="servicios-marketing.html">Marketing Digital</option>
       <option value="servicios-fotografia.html">Fotografía</option>
     </select>
   </div>
 </nav>
+
 
 
   <!-- Planes -->
